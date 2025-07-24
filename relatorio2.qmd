@@ -140,37 +140,23 @@ A seguir, apresentamos um exemplo prático com base no desenvolvimento deste pr�
 
 ### Exemplo prático: iniciando o Git em um projeto Quarto
 
-#### Etapas realizadas
+*Etapas*
 
-1. Criei uma nova pasta chamada `Relatorio Pedro` no caminho:
+1. Criei uma nova pasta:
 
 2. Dentro da pasta, criei um novo arquivo chamado `relatorio2.qmd`.
 
 3. A seguir, abri o terminal dentro da própria pasta do projeto (isso pode ser feito direto pelo Visual Studio Code ou Positron).
 
-
-#### Transformando em repositório Git
-
-::: tip
-No terminal, executei os seguintes comandos:
-
-```{bash}
-# Inicializar o repositório Git
-git init
-
-# Verificar o status dos arquivos
-git status
-
-# Adicionar o arquivo ao repositório
-git add relatorio2.qmd
-
-# Registrar o primeiro commit com uma mensagem
-git commit -m "Primeiro commit do relatório em Quarto"
-
-
-
-
-
+\vspace{0.5cm}
+\noindent\fbox{%
+  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+    \textbf{Transformando em repositório Git:}\\ 
+    Este é um bloco simples que funciona em qualquer PDF\\
+    \texttt{git init} - Comando para iniciar repositório
+  }%
+}
+\vspace{0.5cm}
 
 ## conceitos basicos em
 
