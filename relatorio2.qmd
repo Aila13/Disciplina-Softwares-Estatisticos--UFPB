@@ -32,7 +32,7 @@ DISCIPLINA: INTRODUÇÃO AOS SOFTWARES ESTATÍSTICOS
 \vfill
 
 \begin{center}
-\Large{TÍTULO}
+\Large{Fluxo de Trabalho: Integrando Git, GitHub e Quarto com Introdução à Programação em Python}
 \end{center}
 
 \vfill
@@ -62,11 +62,11 @@ Julho 2025
 ## 1.0 INTRODUÇÃO
 
 
-Com os avanços do *Big Data* - termo que descreve grandes volumes de dados de alta velocidade, complexos e variáveis que passaram a exigir técnicas e tecnologias avançadas para captura, armazenamento, distribuição, gerenciamento e análise de informações [@techamerica2012] - observamos que o valor desses dados só é plenamente aproveitado quando utilizado para tomada de decisões estratégicas. Para isso, as organizações precisam de processos eficientes que transformem dados brutos, muitas vezes dispersos e dinâmicos, em *insights* significativos [@gandomi2015].
+Com os avanços do *Big Data* - termo que descreve grandes volumes de dados de alta velocidade, complexos e variáveis, que passaram a exigir técnicas avançadas para captura, armazenamento, distribuição, gerenciamento e análise de informações [@techamerica2012] - observamos que o valor desses dados só é plenamente aproveitado quando utilizado para tomada de decisões estratégicas. Para isso, as organizações precisam de processos eficientes que transformem dados brutos, muitas vezes dispersos e dinâmicos, em *insights* significativos [@gandomi2015].
 
 Além disso, conforme um projeto avança, arquivos são constantemente modificados e compartilhados entre colaboradores, exigindo gestão adequada para garantir integridade e acessibilidade. O gerenciamento de dados envolve não apenas armazenamento, mas também preparação e recuperação eficiente para análise [@bryan2017].
 
-Nesse contexto, este trabalho foi desenvolvido como requisito da disciplina Introdução aos Softwares Estatísticos, com o objetivo de integrar ferramentas fundamentais para a prática atual da estatística:
+Nesse contexto, este trabalho foi desenvolvido como requisito da disciplina, Introdução aos Softwares Estatísticos, com o objetivo de integrar ferramentas fundamentais para a prática atual da estatística, como:
 
 1. **Git e GitHub** - Sistema de controle de versões distribuído e plataforma de hospedagem
 2. **Quarto** - Ferramenta para criação de relatórios dinâmicos e reprodutíveis
@@ -74,7 +74,7 @@ Nesse contexto, este trabalho foi desenvolvido como requisito da disciplina Intr
 
 ## 2.0 Controle de Versão
 
-Antes de falarmos sobre Git e GitHub, precisamos entender o conceito de **controle de versão**. Esse sistema registra todas as mudanças em arquivos ao longo do tempo, permitindo que você volte a versões anteriores quando necessário. Ele guarda todo o histórico de alterações em um banco de dados especial. Se acontecer algum erro, é possível voltar atrás e comparar diferentes versões do projeto [@bryan2020].
+Antes de falarmos sobre Git e GitHub, precisamos entender o conceito de **controle de versão**. Esse sistema registra todas as mudanças em arquivos ao longo do tempo, permitindo que você volte a versões anteriores quando necessário. Ele guarda todo o histórico de alterações em um banco de dados. Se acontecer algum erro, é possível voltar atrás e comparar diferentes versões do projeto [@bryan2020].
 
 ### 2.2 Benefícios do Controle de Versão
 
@@ -130,7 +130,7 @@ O GitHub é uma plataforma de hospedagem de código-fonte que complementa o uso 
 
 Muitas operações podem ser feitas inteiramente no Github, como exemplo: **Visualizar e editar arquivos; revisar e gerenciar solicitações de mudanças; e Controlar permissões de acesso aos projetos**.
 
-## 3.3 Comandos básicos: `git init`, `git clone`, `git add`, `git commit`, `git push`, `git pull`
+## 3.3 Comandos básicos: `git init`, `git add`, `git clone`,  `git commit`, `git push`, `git pull`
 
 ### 3.3.1 `git init`
 
@@ -142,24 +142,109 @@ A seguir, apresentamos um exemplo prático com base no desenvolvimento deste pr�
 
 *Etapas*
 
-1. Criei uma nova pasta:
+1. No Positron criar uma nova pasta
 
-2. Dentro da pasta, criei um novo arquivo chamado `relatorio2.qmd`.
+2. Dentro da pasta, criar um novo arquivo chamado `relatorio2.qmd`.
 
-3. A seguir, abri o terminal dentro da própria pasta do projeto (isso pode ser feito direto pelo Visual Studio Code ou Positron).
+3. A seguir, abri o terminal navegar na pasta do projeto com o comando *c*
 
 \vspace{0.5cm}
 \noindent\fbox{%
   \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-    \textbf{Transformando em repositório Git:}\\ 
-    Este é um bloco simples que funciona em qualquer PDF\\
-    \texttt{git init} - Comando para iniciar repositório
+     \textbf{Transformando em repositório Git:}\\ 
+      No terminal, executei os seguintes comandos:\\
+        \texttt{git init} - Comando para iniciar repositório\\
+        \texttt{git status} - Comando para verificar o status dos arquivo\\
   }%
 }
 \vspace{0.5cm}
 
-## conceitos basicos em
+### 3.3.2 `git add`
+O comando `git add` prepara arquivos para serem incluídos no próximo *commit*. Ou seja, ele diz ao Git quais arquivos você quer salvar no histórico de versões. Você deve usar sempre que, criar um arquivo, modificar ou deletar algum arquivo.
 
-## CONCLUSÃO
+\vspace{0.5cm}
+\noindent\fbox{%
+  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+    \textbf{Usando o git add:}\\ 
+    No terminal, execute os seguintes comandos:\\
+    \texttt{git add .} - Adicionar todos os arquivos modificados. O ponto . significa  “tudo no diretório atual e subpastas\\
+    \texttt{git add relatorio2.qmd} - Adicionar um arquivo específico:\\
+  }%
+}
+\vspace{0.5cm}
+
+Depois de adicionar, os arquivos ficam em um estado chamado **"staged"** (preparado). Eles só serão salvos de verdade no Git quando você fizer o commit:
+`git commit -m` "mensagem explicando a mudança".
+
+### 3.3.3 `git clone` 
+O comando `git clone` é usado para copiar um repositório Git existente para o seu computador. Ele cria uma cópia completa do projeto, incluindo todos os arquivos, histórico de versões e estrutura de diretórios.
+Você pode clonar repositórios que estejam hospedados localmente ou em servidores remotos, como o GitHub. Esse comando é geralmente o primeiro passo para começar a colaborar em um projeto existente.
+
+\vspace{0.5cm}
+\noindent\fbox{%
+  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+    \textbf{Usando o git clone:}\\ 
+    No terminal, execute o seguinte comando:\\
+  \texttt{git clone https://github.com/usuario/nome-do-repositorio.git} - Esse comando irá criar uma pasta chamada nome-do-repositorio com todos os arquivos e histórico do repositório remoto.\\
+  
+  }%
+}
+\vspace{0.5cm}
+
+### 3.3.4 `git commit` 
+O comando `git commit`  registra um instantâneo das alterações preparadas no projeto. Esse instantâneo representa uma versão segura do projeto naquele momento, que será armazenada no histórico do repositório. 
+
+Antes de executar o `git commit`, é necessário utilizar o comando `git add`, que serve para selecionar as alterações que serão incluídas nesse instantâneo. Assim, `git add` prepara os arquivos, e `git commit` os salva definitivamente no repositório local.
+
+Além disso, o comando `git status` pode ser usado a qualquer momento para verificar quais arquivos foram modificados, quais já foram preparados com `git add`  e quais ainda não foram incluídos no próximo commit.
+
+Esses três comandos — `git add`, `git status` e `git commit` — são frequentemente utilizados em conjunto e formam o fluxo básico de trabalho com Git, permitindo um controle eficiente sobre a evolução de um projeto.
+
+\vspace{0.5cm}
+\noindent\fbox{%
+  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+    \textbf{Usando o git add, git status e git commit:}\\ 
+    No terminal, execute os seguintes comandos:\\
+  \texttt{git status} - Comando para verificar o status dos arquivo\\
+  \texttt{git add .} - Adicionar todos os arquivos modificados. O ponto . significa “tudo no diretório atual e subpastas\\
+  \texttt{git add relatorio2.qmd} - Adicionar um arquivo específico:\\
+  \texttt{git status} - verificar se o arquivo foi adicionado corretamente\\
+  \texttt{git commit -m "mensagem explicando a mudança"} - Comando para fazer o commit\\
+  }%
+}
+\vspace{0.5cm}
+
+### 3.3.5 `git push`
+O comando `git push` é usado para enviar os commits feitos localmente para um repositório remoto, como o GitHub. Ele efetivamente publica suas alterações para que fiquem disponíveis online e possam ser vistas ou utilizadas por outras pessoas. O `git push` pode ser considerado um comando de *"upload"*, enquanto `git fetch` e `git pull` podem ser considerados comandos de *"download"* .
+Esse comando deve ser utilizado após o `git commit`, pois apenas os commits podem ser enviados ao repositório remoto.
+
+\vspace{0.5cm}
+\noindent\fbox{%
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Usando o git push:}\\
+Após adicionar e fazer commit das alterações, use o seguinte comando para enviar ao repositório remoto:\\
+\texttt{git push origin main} - Esse comando envia as alterações da  branch principal (main) para o repositório remoto chamado origin.\\
+}%
+}
+\vspace{0.5cm}
+
+*Origin* é o nome padrão que o Git atribui ao repositório remoto ao usar `git clone`. A *branch* principal pode ser chamada de *main* (padrão atual adotado desde 2020 por GitHub, GitLab e Bitbucket para promover linguagem mais inclusiva) ou *master* (termo tradicional ainda encontrado em projetos antigos). Ambos funcionam da mesma forma, variando apenas na nomenclatura. Para verificar qual seu repositório utiliza, execute `git branch -a`. 
+
+### 3.3.6 `git pull`
+O comando `git pull` é usado para buscar e baixar conteúdo de repositórios remotos, atualizando imediatamente o repositório local para que os conteúdos fiquem iguais. Ele combina automaticamente duas operações: `git fetch` (que baixa as alterações do repositório remoto) e `git merge` (que integra essas mudanças ao branch local). Esse comando é essencial para manter seu trabalho atualizado com as contribuições de outros colaboradores, sendo um dos principais responsáveis pela sincronização de conteúdo remoto. 
+
+
+\vspace{0.5cm}
+\noindent\fbox{%
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Usando o git pull:}\\
+\texttt{git pull origin main} - Esse comando Equivalente aos comandos git fetch mais git merge.\\
+}%
+}
+\vspace{0.5cm}
+
+## 4.0 Python
+
+
 
 ## REFERÊNCIAS
