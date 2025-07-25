@@ -148,30 +148,24 @@ A seguir, apresentamos um exemplo prático com base no desenvolvimento deste pr�
 
 3. A seguir, abri o terminal navegar na pasta do projeto com o comando *c*
 
-\vspace{0.5cm}
-\noindent\fbox{%
-  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-     \textbf{Transformando em repositório Git:}\\ 
-      No terminal, executei os seguintes comandos:\\
-        \texttt{git init} - Comando para iniciar repositório\\
-        \texttt{git status} - Comando para verificar o status dos arquivo\\
-  }%
-}
-\vspace{0.5cm}
+**Transformando em repositório Git**
 
+No terminal, execute os seguintes comandos:
+``` python
+git init #Comando para iniciar repositório
+git status #Comando para verificar o status dos arquivo
+```
 ### 3.3.2 `git add`
 O comando `git add` prepara arquivos para serem incluídos no próximo *commit*. Ou seja, ele diz ao Git quais arquivos você quer salvar no histórico de versões. Você deve usar sempre que, criar um arquivo, modificar ou deletar algum arquivo.
 
-\vspace{0.5cm}
-\noindent\fbox{%
-  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-    \textbf{Usando o git add:}\\ 
-    No terminal, execute os seguintes comandos:\\
-    \texttt{git add .} - Adicionar todos os arquivos modificados. O ponto . significa  “tudo no diretório atual e subpastas\\
-    \texttt{git add relatorio2.qmd} - Adicionar um arquivo específico:\\
-  }%
-}
-\vspace{0.5cm}
+**Usando o git add**
+
+No terminal, execute os seguintes comandos:
+``` python
+git add . # Adicionar todos os arquivos modificados. 
+          # O ponto . significa  “tudo no diretório atual e subpastas"
+git add relatorio2.qmd #Adicionar um arquivo específico
+```
 
 Depois de adicionar, os arquivos ficam em um estado chamado **"staged"** (preparado). Eles só serão salvos de verdade no Git quando você fizer o commit:
 `git commit -m` "mensagem explicando a mudança".
@@ -180,16 +174,13 @@ Depois de adicionar, os arquivos ficam em um estado chamado **"staged"** (prepar
 O comando `git clone` é usado para copiar um repositório Git existente para o seu computador. Ele cria uma cópia completa do projeto, incluindo todos os arquivos, histórico de versões e estrutura de diretórios.
 Você pode clonar repositórios que estejam hospedados localmente ou em servidores remotos, como o GitHub. Esse comando é geralmente o primeiro passo para começar a colaborar em um projeto existente.
 
-\vspace{0.5cm}
-\noindent\fbox{%
-  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-    \textbf{Usando o git clone:}\\ 
-    No terminal, execute o seguinte comando:\\
-  \texttt{git clone https://github.com/usuario/nome-do-repositorio.git} - Esse comando irá criar uma pasta chamada nome-do-repositorio com todos os arquivos e histórico do repositório remoto.\\
-  
-  }%
-}
-\vspace{0.5cm}
+**Usando o git clone**
+
+No terminal, execute o seguinte comando:
+``` python
+git clone https://github.com/usuario/nome-do-repositorio.git
+```
+👉Esse comando irá criar uma pasta chamada nome-do-repositorio com todos os arquivos e histórico do repositório remoto.
 
 ### 3.3.4 `git commit` 
 O comando `git commit`  registra um instantâneo das alterações preparadas no projeto. Esse instantâneo representa uma versão segura do projeto naquele momento, que será armazenada no histórico do repositório. 
@@ -200,51 +191,253 @@ Além disso, o comando `git status` pode ser usado a qualquer momento para verif
 
 Esses três comandos — `git add`, `git status` e `git commit` — são frequentemente utilizados em conjunto e formam o fluxo básico de trabalho com Git, permitindo um controle eficiente sobre a evolução de um projeto.
 
-\vspace{0.5cm}
-\noindent\fbox{%
-  \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-    \textbf{Usando o git add, git status e git commit:}\\ 
-    No terminal, execute os seguintes comandos:\\
-  \texttt{git status} - Comando para verificar o status dos arquivo\\
-  \texttt{git add .} - Adicionar todos os arquivos modificados. O ponto . significa “tudo no diretório atual e subpastas\\
-  \texttt{git add relatorio2.qmd} - Adicionar um arquivo específico:\\
-  \texttt{git status} - verificar se o arquivo foi adicionado corretamente\\
-  \texttt{git commit -m "mensagem explicando a mudança"} - Comando para fazer o commit\\
-  }%
-}
-\vspace{0.5cm}
+**Usando o git add, git status e git commit**
+
+ No terminal, execute os seguintes comandos:
+``` python
+git status # Comando para verificar o status dos arquivo
+git add . # Adicionar todos os arquivos modificados
+git add relatorio2.qmd # Adicionar um arquivo específico
+git status # Verificar se o arquivo foi adicionado corretamente
+git commit -m "mensagem explicando a mudança" # Comando para fazer o commit
+```
 
 ### 3.3.5 `git push`
 O comando `git push` é usado para enviar os commits feitos localmente para um repositório remoto, como o GitHub. Ele efetivamente publica suas alterações para que fiquem disponíveis online e possam ser vistas ou utilizadas por outras pessoas. O `git push` pode ser considerado um comando de *"upload"*, enquanto `git fetch` e `git pull` podem ser considerados comandos de *"download"* .
 Esse comando deve ser utilizado após o `git commit`, pois apenas os commits podem ser enviados ao repositório remoto.
 
-\vspace{0.5cm}
-\noindent\fbox{%
-\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Usando o git push:}\\
-Após adicionar e fazer commit das alterações, use o seguinte comando para enviar ao repositório remoto:\\
-\texttt{git push origin main} - Esse comando envia as alterações da  branch principal (main) para o repositório remoto chamado origin.\\
-}%
-}
-\vspace{0.5cm}
+**Usando o git push**
+
+Após adicionar e fazer commit das alterações, use o seguinte comando para enviar ao repositório remoto:
+
+``` python
+git push origin main 
+```
+👉Esse comando envia as alterações da  branch principal (main) para o repositório remoto chamado origin.
 
 *Origin* é o nome padrão que o Git atribui ao repositório remoto ao usar `git clone`. A *branch* principal pode ser chamada de *main* (padrão atual adotado desde 2020 por GitHub, GitLab e Bitbucket para promover linguagem mais inclusiva) ou *master* (termo tradicional ainda encontrado em projetos antigos). Ambos funcionam da mesma forma, variando apenas na nomenclatura. Para verificar qual seu repositório utiliza, execute `git branch -a`. 
 
 ### 3.3.6 `git pull`
 O comando `git pull` é usado para buscar e baixar conteúdo de repositórios remotos, atualizando imediatamente o repositório local para que os conteúdos fiquem iguais. Ele combina automaticamente duas operações: `git fetch` (que baixa as alterações do repositório remoto) e `git merge` (que integra essas mudanças ao branch local). Esse comando é essencial para manter seu trabalho atualizado com as contribuições de outros colaboradores, sendo um dos principais responsáveis pela sincronização de conteúdo remoto. 
 
+**Usando o git pull:**
 
-\vspace{0.5cm}
-\noindent\fbox{%
-\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Usando o git pull:}\\
-\texttt{git pull origin main} - Esse comando Equivalente aos comandos git fetch mais git merge.\\
-}%
-}
-\vspace{0.5cm}
+``` python
+git pull origin main 
+```
+👉 Esse comando é equivalente aos comandos `git fetch` + `git merge`
+
+### 3.3.7 Resumo do Fluxo de Trabalho
+
+O fluxo de trabalho com **Git**, **GitHub** e **Quarto** segue uma sequência simples e eficiente:
+
+1. **Criar ou clonar um repositório** → Começa-se criando um repositório local ou clonando um repositório existente do GitHub.  
+2. **Modificar os arquivos** → Edita-se o conteúdo do projeto (por exemplo, um arquivo `.qmd` no Quarto).  
+3. **Verificar o status** (`git status`) → Confere-se quais arquivos foram alterados.  
+4. **Adicionar mudanças** (`git add`) → Seleciona-se os arquivos a serem salvos.  
+5. **Salvar com um commit** (`git commit -m "mensagem"`) → Registra-se um ponto da versão do projeto.  
+6. **Enviar para o GitHub** (`git push`) → As alterações locais são enviadas para o repositório remoto.  
+  
+
+Esse processo garante que o projeto esteja **organizado, versionado e disponível online**, facilitando a colaboração e a atualização contínua do trabalho.
 
 ## 4.0 Python
-### 4.1
+
+Python foi criada por Guido van Rossum em 1991 como uma linguagem de programação de alto nível e multiparadigma (Artima Developer, *The Making of Python*). Seu código-fonte está disponível sob a licença GNU General Public License (GPL).
+
+É uma linguagem poderosa e de fácil aprendizado. Sua filosofia de design enfatiza a legibilidade do código, permitindo que os programadores expressem conceitos com menos linhas do que seria necessário em linguagens como C++ ou Java.
+
+Um programa em Python segue uma estrutura simples, composta por um **algoritmo**, que é uma sequência de passos definidos para realizar uma tarefa. Esse algoritmo geralmente envolve três partes:
+
+* **Entrada:** dados fornecidos ao programa;
+* **Processamento:** etapas e operações que transformam os dados;
+* **Saída:** o resultado final.
+
+**Exemplo simples de um programa em Python:**
+
+```python
+a = 1
+b = 2
+soma = a + b
+print(soma) #3
+```
+Esse pequeno código realiza a soma de dois números e exibe o resultado (3) na tela.
 
 
+### 4.1 Conceitos iniciais de Python
+
+### 4.1.1 Tipos de dados: `int`, `float`, `str`, `bool`
+
+Em Python, os tipos de dados primitivos são fundamentais para a construção de qualquer programa. Entre os principais tipos estão os numéricos (`int`, `float`, `complex`), as cadeias de texto (`str`) e os valores lógicos (`bool`).
+
+#### Tipos numéricos
+
+- `int`: representa números inteiros (sem parte decimal), positivos ou negativos.  
+- `float`: representa números de ponto flutuante (com parte decimal).  
+- `complex`: representa números complexos, com parte real e imaginária.
+
+```python
+# Exemplos
+numero_inteiro = 10           # int
+numero_decimal = 3.14         # float
+numero_complexo = 2 + 3j       # complex
+
+print(type(numero_inteiro))   # <class 'int'>
+print(type(numero_decimal))   # <class 'float'>
+print(type(numero_complexo))  # <class 'complex'>
+
+```
+
+### Tipo `str` (string)
+Representa sequências de caracteres (texto). Pode ser definido com aspas simples (`' '`) ou duplas (`" "`):
+
+```python
+# Exemplos de strings
+nome = "Aila"
+mensagem = 'Olá, mundo!'
+
+# Operações com strings
+print(type(nome))      # Saída: <class 'str'>
+print(nome.upper())    # Saída: AILA
+```
+## Tipo `bool` (booleano)
+
+O tipo `bool` representa valores lógicos: `True` (verdadeiro) ou `False` (falso). É usado principalmente em expressões condicionais.
+
+```python
+maior_de_idade = True
+tem_carteira = False
+
+print(type(maior_de_idade))    # <class 'bool'>
+
+# Exemplo de uso em comparação
+idade = 20
+print(idade > 18)  # True
+```
+## 4.1.2 Variáveis e Operadores Básicos
+
+### Variáveis em Python
+Em Python, as variáveis são **dinamicamente tipadas**, diferentemente de linguagens *statically typed* onde o tipo é fixo após a declaração. Isso significa que uma mesma variável pode receber valores de tipos diferentes durante sua vida útil.
+
+### Operadores em Python
+Operadores são símbolos especiais que executam operações aritméticas ou lógicas. Eles são classificados em:
+
+#### Principais Categorias:
+1. **Aritméticos**: Realizam cálculos matemáticos
+   ```python
+   print(10 + 3)  # Adição
+   print(10 ** 2) # Exponenciação
+   ```
+2. **Atribuição**: Atribuem valores a variáveis
+   ```python
+   x = 5
+   x += 3  # Equivalente a x = x + 3
+   ```
+
+3. **Comparação**: Comparam valores
+   ```python
+   print(5 > 3)   # True
+   print(5 == 3)  # False
+   ```
+
+4. **Lógicos**: Combinam expressões booleanas
+   ```python
+   print(True and False)  # False
+   print(True or False)   # True
+   ```
+
+5. **Identidade**: Verificam se objetos são os mesmos
+   ```python
+   a = [1,2]
+   b = a
+   print(a is b)  # True
+   ```
+
+6. **Associação**: Verificam se um elemento está presente
+   ```python
+   print('a' in 'Python')  # False
+   ```
+
+
+## 4.1.3 Listas, Tuplas e Dicionários
+
+Python possui quatro estruturas de dados para coleções:
+
+**1. Listas**
+Coleção **ordenada** e **mutável**. Permite itens duplicados.
+
+```python
+# Criando uma lista
+L = ['V', 'e', 'j', 'a']
+print(L)  # ['V', 'e', 'j', 'a']
+
+# Slicing (acesso a partes da lista)
+print(L[1:3])  # ['e', 'j']
+print(L[-1])   # 'a' (último elemento)
+
+# Modificando a lista
+L.append('!')  # Adiciona no final
+L[0] = 'v'     # Altera um elemento
+```
+
+**2. Tuplas**
+Coleção **ordenada** e **imutável**. Permite duplicados.
+
+```python
+# Criando uma tupla
+t = (1, 3, 5)
+print(t[1])  # 3
+
+# Tentativa de modificação (gera erro)
+# t[0] = 2  # TypeError
+```
+
+**3. Sets**
+Coleção **não-ordenada** e **não-indexada**. Não permite duplicados.
+
+```python
+s = {"maçã", "banana", "maçã"}
+print(s)  # {"maçã", "banana"} (duplicado removido)
+```
+
+**4. Dicionários**
+Coleção **não-ordenada**, **mutável** e **indexada por chaves**.
+
+```python
+# Criando um dicionário
+d = {"nome": "Maria", "idade": 35}
+print(d["nome"])  # Acessando valor
+d["idade"] = 36   # Modificando valor
+```
+## 4.1.4 Estruturas de Controle: if, else, elif
+
+A tomada de decisão é necessária quando queremos executar um código apenas se uma determinada condição for satisfeita.
+
+**Diagrama de Fluxo**
+
+Aqui está o fluxo das estruturas condicionais:
+
+![Diagrama de fluxo if-elif-else](if%20elif%20else.png)  
+*Referência: [Python Iluminado](https://pythoniluminado.netlify.app/for-loops)*
+
+**Funcionamento Básico**
+
+1. O programa avalia a condição do `if` primeiro
+2. Se for falsa, avalia a condição do `elif` (se houver)
+3. Se todas forem falsas, executa o `else` (se existir)
+
+**Exemplo 1: Avaliação de Notas**
+
+```python
+nota = 7.5
+
+if nota >= 9.0:
+    print("Excelente! Conceito A")
+elif nota >= 7.0:
+    print("Bom! Conceito B")
+elif nota >= 5.0:
+    print("Regular! Conceito C")
+else:
+    print("Precisa melhorar! Conceito D")
+```
 ## REFERÊNCIAS
