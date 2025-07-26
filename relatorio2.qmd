@@ -501,7 +501,11 @@ Seguir boas práticas de codificação torna o código mais claro, legível e f�
 - **Nomes de variáveis:** utilize nomes claros e descritivos que indiquem o propósito da variável. Por exemplo, `media_alunos` é mais informativo do que `x`.
 - **Indentação:** Python exige indentação correta para definir blocos de código. A recomendação é usar 4 espaços por nível.
 
-### 4.3.1 O que é o `pip`
+### 4.3 `pip` – Gerenciador de Pacotes do Python
+
+O `pip` é o sistema padrão para instalação e gerenciamento de pacotes Python, também conhecidas como bibliotecas. Ele permite que você instale bibliotecas de terceiros diretamente do repositório [PyPI (Python Package Index)](https://pypi.org/), ampliando as funcionalidades da linguagem.
+
+## 4.3.1 O que é o `pip`
 
 O `pip` (Python Installer Package) é uma ferramenta que facilita a instalação de bibliotecas que não estão incluídas na instalação padrão do Python. Com ele, podemos instalar, atualizar e remover pacotes facilmente.
 
@@ -519,7 +523,7 @@ pip list # Listar pacotes instalados:
 pip install --upgrade nome-do-pacote  # Atualizar um pacote: 
 pip show nome-do-pacote  # Visualizar informações de um pacote: 
 ``` 
-#### 4.3.3 Exemplos de bibliotecas populares
+## 4.3.2 Exemplos de bibliotecas populares
 
 Abaixo estão alguns pacotes muito utilizados por quem trabalha com análise de dados, visualização e requisições web:
 
