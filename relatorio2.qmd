@@ -57,8 +57,6 @@ Julho 2025
 
 
 
-
-
 ## 1.0 INTRODUÇÃO
 
 
@@ -440,4 +438,105 @@ elif nota >= 5.0:
 else:
     print("Precisa melhorar! Conceito D")
 ```
+
+## 4.1.5 Estruturas de repetição: `for` e `while`
+
+Em Python, usamos laços de repetição para executar um bloco de código várias vezes. Os dois principais laços são `for` e `while`.
+
+**for**  
+Usado quando sabemos o número de repetições ou queremos percorrer elementos de uma sequência (como listas, strings ou intervalos).
+
+**Exemplo:**
+```python
+# Imprime os números de 1 a 5
+for i in range(1, 6):
+    print(i) 
+``` 
+
+**while** 
+
+Usado quando queremos repetir um bloco de código enquanto uma condição for verdadeira.
+Exemplo:
+```python
+# Imprime os números de 1 a 5
+i = 1
+while i <= 5:
+    print(i)
+    i += 1 
+``` 
+A principal diferença:
+
+• `for` é ideal para percorrer sequências.
+
+• `while` é ideal para repetir algo até que uma condição deixe de ser verdadeira.
+
+
+## 4.1.6 Funções: definição com `def`, parâmetros e retorno
+
+Funções são blocos de código reutilizáveis que executam uma tarefa específica. Em Python, usamos a palavra-chave `def` para definir uma função.
+
+```python
+# Define uma função que soma dois números
+def somar(a, b):
+    return a + b
+
+# Chamada da função
+resultado = somar(3, 5)
+print(resultado)
+``` 
+## 4.1.7 Importação de bibliotecas com import
+Bibliotecas são coleções de funções e recursos já prontos. Com import, podemos utilizá-las no nosso programa.
+```python
+# Importando a biblioteca math
+import math
+
+# Usando uma função da biblioteca math
+print(math.sqrt(25))  # imprime a raiz quadrada de 25
+``` 
+### 4.2 Boas práticas: comentários, nomes de variáveis e indentação
+
+Seguir boas práticas de codificação torna o código mais claro, legível e fácil de manter. Em Python, algumas práticas recomendadas incluem:
+
+- **Comentários:** use `#` para explicar trechos importantes do código. Isso ajuda outras pessoas (e você mesmo no futuro) a entender o que está acontecendo.
+- **Nomes de variáveis:** utilize nomes claros e descritivos que indiquem o propósito da variável. Por exemplo, `media_alunos` é mais informativo do que `x`.
+- **Indentação:** Python exige indentação correta para definir blocos de código. A recomendação é usar 4 espaços por nível.
+
+### 4.3.1 O que é o `pip`
+
+O `pip` (Python Installer Package) é uma ferramenta que facilita a instalação de bibliotecas que não estão incluídas na instalação padrão do Python. Com ele, podemos instalar, atualizar e remover pacotes facilmente.
+
+**Como instalar pacotes com `pip install`**
+
+Para instalar uma biblioteca, basta usar o seguinte comando no terminal:
+
+```python
+pip install nome-do-pacote
+pip install pandas #Exemplo
+``` 
+```python
+pip uninstall nome-do-pacote  # Remover um pacote
+pip list # Listar pacotes instalados: 
+pip install --upgrade nome-do-pacote  # Atualizar um pacote: 
+pip show nome-do-pacote  # Visualizar informações de um pacote: 
+``` 
+#### 4.3.3 Exemplos de bibliotecas populares
+
+Abaixo estão alguns pacotes muito utilizados por quem trabalha com análise de dados, visualização e requisições web:
+
+- `pandas`: manipulação e análise de dados em tabelas.
+- `numpy`: suporte a vetores, matrizes e cálculos numéricos eficientes.
+- `matplotlib`: criação de gráficos e visualizações.
+- `requests`: envio de requisições HTTP de forma simples.
+
+**Exemplo**:
+```python
+# Primeiro instalar a biblioteca (executar no terminal)
+pip install pandas 
+pip install  numpy
+``` 
+**Importações com aliases (apelidos) convencionais**
+```python
+import pandas as pd       # pd é o alias padrão para pandas
+import numpy as np        # np é o alias padrão para numpy
+``` 
 ## REFERÊNCIAS
