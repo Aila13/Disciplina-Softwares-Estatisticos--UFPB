@@ -9,7 +9,7 @@ Trabalho desenvolvido para a disciplina: INTRODUÇÃO AOS SOFTWARES ESTATÍSTICO
 
 - `relatorio2.qmd`: Relatório principal. No formato PDF
 - `relatorio2.pdf`:  Versão compilada em PDF
-
+- `Link`: http://localhost:6545/web/viewer.html
 ## Autor
 
 Aila Ferreira

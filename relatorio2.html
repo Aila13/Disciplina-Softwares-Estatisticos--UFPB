@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -159,18 +194,28 @@ div.csl-indent {
 <li><p>Dentro da pasta, criar um novo arquivo chamado <code>relatorio2.qmd</code>.</p></li>
 <li><p>A seguir, abri o terminal navegar na pasta do projeto com o comando <em>c</em></p></li>
 </ol>
-<p> </p>
+<p><strong>Transformando em repositório Git</strong></p>
+<p>No terminal, execute os seguintes comandos:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git init <span class="co">#Comando para iniciar repositório</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>git status <span class="co">#Comando para verificar o status dos arquivo</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git-add" class="level3">
 <h3 class="anchored" data-anchor-id="git-add">3.3.2 <code>git add</code></h3>
 <p>O comando <code>git add</code> prepara arquivos para serem incluídos no próximo <em>commit</em>. Ou seja, ele diz ao Git quais arquivos você quer salvar no histórico de versões. Você deve usar sempre que, criar um arquivo, modificar ou deletar algum arquivo.</p>
-<p> </p>
+<p><strong>Usando o git add</strong></p>
+<p>No terminal, execute os seguintes comandos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git add . <span class="co"># Adicionar todos os arquivos modificados. </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>          <span class="co"># O ponto . significa  “tudo no diretório atual e subpastas"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>git add relatorio2.qmd <span class="co">#Adicionar um arquivo específico</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Depois de adicionar, os arquivos ficam em um estado chamado <strong>“staged”</strong> (preparado). Eles só serão salvos de verdade no Git quando você fizer o commit: <code>git commit -m</code> “mensagem explicando a mudança”.</p>
 </section>
 <section id="git-clone" class="level3">
 <h3 class="anchored" data-anchor-id="git-clone">3.3.3 <code>git clone</code></h3>
 <p>O comando <code>git clone</code> é usado para copiar um repositório Git existente para o seu computador. Ele cria uma cópia completa do projeto, incluindo todos os arquivos, histórico de versões e estrutura de diretórios. Você pode clonar repositórios que estejam hospedados localmente ou em servidores remotos, como o GitHub. Esse comando é geralmente o primeiro passo para começar a colaborar em um projeto existente.</p>
-<p> </p>
+<p><strong>Usando o git clone</strong></p>
+<p>No terminal, execute o seguinte comando:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git clone https:<span class="op">//</span>github.com<span class="op">/</span>usuario<span class="op">/</span>nome<span class="op">-</span>do<span class="op">-</span>repositorio.git</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>👉Esse comando irá criar uma pasta chamada nome-do-repositorio com todos os arquivos e histórico do repositório remoto.</p>
 </section>
 <section id="git-commit" class="level3">
 <h3 class="anchored" data-anchor-id="git-commit">3.3.4 <code>git commit</code></h3>
@@ -178,22 +223,281 @@ div.csl-indent {
 <p>Antes de executar o <code>git commit</code>, é necessário utilizar o comando <code>git add</code>, que serve para selecionar as alterações que serão incluídas nesse instantâneo. Assim, <code>git add</code> prepara os arquivos, e <code>git commit</code> os salva definitivamente no repositório local.</p>
 <p>Além disso, o comando <code>git status</code> pode ser usado a qualquer momento para verificar quais arquivos foram modificados, quais já foram preparados com <code>git add</code> e quais ainda não foram incluídos no próximo commit.</p>
 <p>Esses três comandos — <code>git add</code>, <code>git status</code> e <code>git commit</code> — são frequentemente utilizados em conjunto e formam o fluxo básico de trabalho com Git, permitindo um controle eficiente sobre a evolução de um projeto.</p>
-<p> </p>
+<p><strong>Usando o git add, git status e git commit</strong></p>
+<p>No terminal, execute os seguintes comandos:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git status <span class="co"># Comando para verificar o status dos arquivo</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>git add . <span class="co"># Adicionar todos os arquivos modificados</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>git add relatorio2.qmd <span class="co"># Adicionar um arquivo específico</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>git status <span class="co"># Verificar se o arquivo foi adicionado corretamente</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"mensagem explicando a mudança"</span> <span class="co"># Comando para fazer o commit</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git-push" class="level3">
 <h3 class="anchored" data-anchor-id="git-push">3.3.5 <code>git push</code></h3>
 <p>O comando <code>git push</code> é usado para enviar os commits feitos localmente para um repositório remoto, como o GitHub. Ele efetivamente publica suas alterações para que fiquem disponíveis online e possam ser vistas ou utilizadas por outras pessoas.&nbsp;O&nbsp;<code>git push</code>&nbsp;pode ser considerado um comando de <em>“upload”</em>, enquanto&nbsp;<code>git fetch</code>&nbsp;e&nbsp;<code>git pull</code>&nbsp;podem ser considerados comandos de <em>“download”</em> . Esse comando deve ser utilizado após o <code>git commit</code>, pois apenas os commits podem ser enviados ao repositório remoto.</p>
-<p> </p>
+<p><strong>Usando o git push</strong></p>
+<p>Após adicionar e fazer commit das alterações, use o seguinte comando para enviar ao repositório remoto:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>git push origin main </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>👉Esse comando envia as alterações da branch principal (main) para o repositório remoto chamado origin.</p>
 <p><em>Origin</em>&nbsp;é o nome padrão que o Git atribui ao repositório remoto ao usar&nbsp;<code>git clone</code>. A <em>branch</em> principal pode ser chamada de&nbsp;<em>main</em>&nbsp;(padrão atual adotado desde 2020 por GitHub, GitLab e Bitbucket para promover linguagem mais inclusiva) ou&nbsp;<em>master</em>&nbsp;(termo tradicional ainda encontrado em projetos antigos). Ambos funcionam da mesma forma, variando apenas na nomenclatura. Para verificar qual seu repositório utiliza, execute&nbsp;<code>git branch -a</code>.</p>
 </section>
 <section id="git-pull" class="level3">
 <h3 class="anchored" data-anchor-id="git-pull">3.3.6 <code>git pull</code></h3>
 <p>O comando&nbsp;<code>git pull</code>&nbsp;é usado para buscar e baixar conteúdo de repositórios remotos, atualizando imediatamente o repositório local para que os conteúdos fiquem iguais. Ele combina automaticamente duas operações:&nbsp;<code>git fetch</code>&nbsp;(que baixa as alterações do repositório remoto) e&nbsp;<code>git merge</code>&nbsp;(que integra essas mudanças ao branch local). Esse comando é essencial para manter seu trabalho atualizado com as contribuições de outros colaboradores, sendo um dos principais responsáveis pela sincronização de conteúdo remoto.</p>
-<p> </p>
+<p><strong>Usando o git pull:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>git pull origin main </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>👉 Esse comando é equivalente aos comandos <code>git fetch</code> + <code>git merge</code></p>
+</section>
+<section id="resumo-do-fluxo-de-trabalho" class="level3">
+<h3 class="anchored" data-anchor-id="resumo-do-fluxo-de-trabalho">3.3.7 Resumo do Fluxo de Trabalho</h3>
+<p>O fluxo de trabalho com <strong>Git</strong>, <strong>GitHub</strong> e <strong>Quarto</strong> segue uma sequência simples e eficiente:</p>
+<ol type="1">
+<li><strong>Criar ou clonar um repositório</strong> → Começa-se criando um repositório local ou clonando um repositório existente do GitHub.<br>
+</li>
+<li><strong>Modificar os arquivos</strong> → Edita-se o conteúdo do projeto (por exemplo, um arquivo <code>.qmd</code> no Quarto).<br>
+</li>
+<li><strong>Verificar o status</strong> (<code>git status</code>) → Confere-se quais arquivos foram alterados.<br>
+</li>
+<li><strong>Adicionar mudanças</strong> (<code>git add</code>) → Seleciona-se os arquivos a serem salvos.<br>
+</li>
+<li><strong>Salvar com um commit</strong> (<code>git commit -m "mensagem"</code>) → Registra-se um ponto da versão do projeto.<br>
+</li>
+<li><strong>Enviar para o GitHub</strong> (<code>git push</code>) → As alterações locais são enviadas para o repositório remoto.</li>
+</ol>
+<p>Esse processo garante que o projeto esteja <strong>organizado, versionado e disponível online</strong>, facilitando a colaboração e a atualização contínua do trabalho.</p>
 </section>
 </section>
 <section id="python" class="level2">
 <h2 class="anchored" data-anchor-id="python">4.0 Python</h2>
+<p>Python foi criada por Guido van Rossum em 1991 como uma linguagem de programação de alto nível e multiparadigma (Artima Developer, <em>The Making of Python</em>). Seu código-fonte está disponível sob a licença GNU General Public License (GPL).</p>
+<p>É uma linguagem poderosa e de fácil aprendizado. Sua filosofia de design enfatiza a legibilidade do código, permitindo que os programadores expressem conceitos com menos linhas do que seria necessário em linguagens como C++ ou Java.</p>
+<p>Um programa em Python segue uma estrutura simples, composta por um <strong>algoritmo</strong>, que é uma sequência de passos definidos para realizar uma tarefa. Esse algoritmo geralmente envolve três partes:</p>
+<ul>
+<li><strong>Entrada:</strong> dados fornecidos ao programa;</li>
+<li><strong>Processamento:</strong> etapas e operações que transformam os dados;</li>
+<li><strong>Saída:</strong> o resultado final.</li>
+</ul>
+<p><strong>Exemplo simples de um programa em Python:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>soma <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(soma) <span class="co">#3</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esse pequeno código realiza a soma de dois números e exibe o resultado (3) na tela.</p>
+<section id="conceitos-iniciais-de-python" class="level3">
+<h3 class="anchored" data-anchor-id="conceitos-iniciais-de-python">4.1 Conceitos iniciais de Python</h3>
+</section>
+<section id="tipos-de-dados-int-float-str-bool" class="level3">
+<h3 class="anchored" data-anchor-id="tipos-de-dados-int-float-str-bool">4.1.1 Tipos de dados: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code></h3>
+<p>Em Python, os tipos de dados primitivos são fundamentais para a construção de qualquer programa. Entre os principais tipos estão os numéricos (<code>int</code>, <code>float</code>, <code>complex</code>), as cadeias de texto (<code>str</code>) e os valores lógicos (<code>bool</code>).</p>
+<section id="tipos-numéricos" class="level4">
+<h4 class="anchored" data-anchor-id="tipos-numéricos">Tipos numéricos</h4>
+<ul>
+<li><code>int</code>: representa números inteiros (sem parte decimal), positivos ou negativos.<br>
+</li>
+<li><code>float</code>: representa números de ponto flutuante (com parte decimal).<br>
+</li>
+<li><code>complex</code>: representa números complexos, com parte real e imaginária.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplos</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>numero_inteiro <span class="op">=</span> <span class="dv">10</span>           <span class="co"># int</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>numero_decimal <span class="op">=</span> <span class="fl">3.14</span>         <span class="co"># float</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>numero_complexo <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="ot">3j</span>       <span class="co"># complex</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(numero_inteiro))   <span class="co"># &lt;class 'int'&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(numero_decimal))   <span class="co"># &lt;class 'float'&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(numero_complexo))  <span class="co"># &lt;class 'complex'&gt;</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tipo-str-string" class="level3">
+<h3 class="anchored" data-anchor-id="tipo-str-string">Tipo <code>str</code> (string)</h3>
+<p>Representa sequências de caracteres (texto). Pode ser definido com aspas simples (<code>' '</code>) ou duplas (<code>" "</code>):</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplos de strings</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="st">"Aila"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mensagem <span class="op">=</span> <span class="st">'Olá, mundo!'</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Operações com strings</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(nome))      <span class="co"># Saída: &lt;class 'str'&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nome.upper())    <span class="co"># Saída: AILA</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tipo-bool-booleano" class="level2">
+<h2 class="anchored" data-anchor-id="tipo-bool-booleano">Tipo <code>bool</code> (booleano)</h2>
+<p>O tipo <code>bool</code> representa valores lógicos: <code>True</code> (verdadeiro) ou <code>False</code> (falso). É usado principalmente em expressões condicionais.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>maior_de_idade <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tem_carteira <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(maior_de_idade))    <span class="co"># &lt;class 'bool'&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo de uso em comparação</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(idade <span class="op">&gt;</span> <span class="dv">18</span>)  <span class="co"># True</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="variáveis-e-operadores-básicos" class="level2">
+<h2 class="anchored" data-anchor-id="variáveis-e-operadores-básicos">4.1.2 Variáveis e Operadores Básicos</h2>
+<section id="variáveis-em-python" class="level3">
+<h3 class="anchored" data-anchor-id="variáveis-em-python">Variáveis em Python</h3>
+<p>Em Python, as variáveis são <strong>dinamicamente tipadas</strong>, diferentemente de linguagens <em>statically typed</em> onde o tipo é fixo após a declaração. Isso significa que uma mesma variável pode receber valores de tipos diferentes durante sua vida útil.</p>
+</section>
+<section id="operadores-em-python" class="level3">
+<h3 class="anchored" data-anchor-id="operadores-em-python">Operadores em Python</h3>
+<p>Operadores são símbolos especiais que executam operações aritméticas ou lógicas. Eles são classificados em:</p>
+<section id="principais-categorias" class="level4">
+<h4 class="anchored" data-anchor-id="principais-categorias">Principais Categorias:</h4>
+<ol type="1">
+<li><p><strong>Aritméticos</strong>: Realizam cálculos matemáticos</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span>)  <span class="co"># Adição</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">**</span> <span class="dv">2</span>) <span class="co"># Exponenciação</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Atribuição</strong>: Atribuem valores a variáveis</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">+=</span> <span class="dv">3</span>  <span class="co"># Equivalente a x = x + 3</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Comparação</strong>: Comparam valores</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">3</span>)   <span class="co"># True</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>)  <span class="co"># False</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lógicos</strong>: Combinam expressões booleanas</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)  <span class="co"># False</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>)   <span class="co"># True</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Identidade</strong>: Verificam se objetos são os mesmos</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="kw">is</span> b)  <span class="co"># True</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Associação</strong>: Verificam se um elemento está presente</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'a'</span> <span class="kw">in</span> <span class="st">'Python'</span>)  <span class="co"># False</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="listas-tuplas-e-dicionários" class="level2">
+<h2 class="anchored" data-anchor-id="listas-tuplas-e-dicionários">4.1.3 Listas, Tuplas e Dicionários</h2>
+<p>Python possui quatro estruturas de dados para coleções:</p>
+<p><strong>1. Listas</strong> Coleção <strong>ordenada</strong> e <strong>mutável</strong>. Permite itens duplicados.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando uma lista</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> [<span class="st">'V'</span>, <span class="st">'e'</span>, <span class="st">'j'</span>, <span class="st">'a'</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L)  <span class="co"># ['V', 'e', 'j', 'a']</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Slicing (acesso a partes da lista)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L[<span class="dv">1</span>:<span class="dv">3</span>])  <span class="co"># ['e', 'j']</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L[<span class="op">-</span><span class="dv">1</span>])   <span class="co"># 'a' (último elemento)</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificando a lista</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>L.append(<span class="st">'!'</span>)  <span class="co"># Adiciona no final</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>L[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'v'</span>     <span class="co"># Altera um elemento</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. Tuplas</strong> Coleção <strong>ordenada</strong> e <strong>imutável</strong>. Permite duplicados.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando uma tupla</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t[<span class="dv">1</span>])  <span class="co"># 3</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tentativa de modificação (gera erro)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># t[0] = 2  # TypeError</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Sets</strong> Coleção <strong>não-ordenada</strong> e <strong>não-indexada</strong>. Não permite duplicados.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> {<span class="st">"maçã"</span>, <span class="st">"banana"</span>, <span class="st">"maçã"</span>}</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s)  <span class="co"># {"maçã", "banana"} (duplicado removido)</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Dicionários</strong> Coleção <strong>não-ordenada</strong>, <strong>mutável</strong> e <strong>indexada por chaves</strong>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um dicionário</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"Maria"</span>, <span class="st">"idade"</span>: <span class="dv">35</span>}</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d[<span class="st">"nome"</span>])  <span class="co"># Acessando valor</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>d[<span class="st">"idade"</span>] <span class="op">=</span> <span class="dv">36</span>   <span class="co"># Modificando valor</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="estruturas-de-controle-if-else-elif" class="level2">
+<h2 class="anchored" data-anchor-id="estruturas-de-controle-if-else-elif">4.1.4 Estruturas de Controle: if, else, elif</h2>
+<p>A tomada de decisão é necessária quando queremos executar um código apenas se uma determinada condição for satisfeita.</p>
+<p><strong>Diagrama de Fluxo</strong></p>
+<p>Aqui está o fluxo das estruturas condicionais:</p>
+<p><img src="if%20elif%20else.png" class="img-fluid" alt="Diagrama de fluxo if-elif-else"><br>
+<em>Referência: <a href="https://pythoniluminado.netlify.app/for-loops">Python Iluminado</a></em></p>
+<p><strong>Funcionamento Básico</strong></p>
+<ol type="1">
+<li>O programa avalia a condição do <code>if</code> primeiro</li>
+<li>Se for falsa, avalia a condição do <code>elif</code> (se houver)</li>
+<li>Se todas forem falsas, executa o <code>else</code> (se existir)</li>
+</ol>
+<p><strong>Exemplo 1: Avaliação de Notas</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>nota <span class="op">=</span> <span class="fl">7.5</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">9.0</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Excelente! Conceito A"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">7.0</span>:</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Bom! Conceito B"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">5.0</span>:</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Regular! Conceito C"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Precisa melhorar! Conceito D"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="estruturas-de-repetição-for-e-while" class="level2">
+<h2 class="anchored" data-anchor-id="estruturas-de-repetição-for-e-while">4.1.5 Estruturas de repetição: <code>for</code> e <code>while</code></h2>
+<p>Em Python, usamos laços de repetição para executar um bloco de código várias vezes. Os dois principais laços são <code>for</code> e <code>while</code>.</p>
+<p><strong>for</strong><br>
+Usado quando sabemos o número de repetições ou queremos percorrer elementos de uma sequência (como listas, strings ou intervalos).</p>
+<p><strong>Exemplo:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprime os números de 1 a 5</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>while</strong></p>
+<p>Usado quando queremos repetir um bloco de código enquanto uma condição for verdadeira. Exemplo:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprime os números de 1 a 5</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;=</span> <span class="dv">5</span>:</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span> </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A principal diferença:</p>
+<p>• <code>for</code> é ideal para percorrer sequências.</p>
+<p>• <code>while</code> é ideal para repetir algo até que uma condição deixe de ser verdadeira.</p>
+</section>
+<section id="funções-definição-com-def-parâmetros-e-retorno" class="level2">
+<h2 class="anchored" data-anchor-id="funções-definição-com-def-parâmetros-e-retorno">4.1.6 Funções: definição com <code>def</code>, parâmetros e retorno</h2>
+<p>Funções são blocos de código reutilizáveis que executam uma tarefa específica. Em Python, usamos a palavra-chave <code>def</code> para definir uma função.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define uma função que soma dois números</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> somar(a, b):</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamada da função</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> somar(<span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resultado)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="importação-de-bibliotecas-com-import" class="level2">
+<h2 class="anchored" data-anchor-id="importação-de-bibliotecas-com-import">4.1.7 Importação de bibliotecas com import</h2>
+<p>Bibliotecas são coleções de funções e recursos já prontos. Com import, podemos utilizá-las no nosso programa.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando a biblioteca math</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando uma função da biblioteca math</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">25</span>))  <span class="co"># imprime a raiz quadrada de 25</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="boas-práticas-comentários-nomes-de-variáveis-e-indentação" class="level3">
+<h3 class="anchored" data-anchor-id="boas-práticas-comentários-nomes-de-variáveis-e-indentação">4.2 Boas práticas: comentários, nomes de variáveis e indentação</h3>
+<p>Seguir boas práticas de codificação torna o código mais claro, legível e fácil de manter. Em Python, algumas práticas recomendadas incluem:</p>
+<ul>
+<li><strong>Comentários:</strong> use <code>#</code> para explicar trechos importantes do código. Isso ajuda outras pessoas (e você mesmo no futuro) a entender o que está acontecendo.</li>
+<li><strong>Nomes de variáveis:</strong> utilize nomes claros e descritivos que indiquem o propósito da variável. Por exemplo, <code>media_alunos</code> é mais informativo do que <code>x</code>.</li>
+<li><strong>Indentação:</strong> Python exige indentação correta para definir blocos de código. A recomendação é usar 4 espaços por nível.</li>
+</ul>
+</section>
+<section id="o-que-é-o-pip" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-é-o-pip">4.3.1 O que é o <code>pip</code></h3>
+<p>O <code>pip</code> (Python Installer Package) é uma ferramenta que facilita a instalação de bibliotecas que não estão incluídas na instalação padrão do Python. Com ele, podemos instalar, atualizar e remover pacotes facilmente.</p>
+<p><strong>Como instalar pacotes com <code>pip install</code></strong></p>
+<p>Para instalar uma biblioteca, basta usar o seguinte comando no terminal:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pip install nome<span class="op">-</span>do<span class="op">-</span>pacote</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pip install pandas <span class="co">#Exemplo</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pip uninstall nome<span class="op">-</span>do<span class="op">-</span>pacote  <span class="co"># Remover um pacote</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pip <span class="bu">list</span> <span class="co"># Listar pacotes instalados: </span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">--</span>upgrade nome<span class="op">-</span>do<span class="op">-</span>pacote  <span class="co"># Atualizar um pacote: </span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>pip show nome<span class="op">-</span>do<span class="op">-</span>pacote  <span class="co"># Visualizar informações de um pacote: </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exemplos-de-bibliotecas-populares" class="level4">
+<h4 class="anchored" data-anchor-id="exemplos-de-bibliotecas-populares">4.3.3 Exemplos de bibliotecas populares</h4>
+<p>Abaixo estão alguns pacotes muito utilizados por quem trabalha com análise de dados, visualização e requisições web:</p>
+<ul>
+<li><code>pandas</code>: manipulação e análise de dados em tabelas.</li>
+<li><code>numpy</code>: suporte a vetores, matrizes e cálculos numéricos eficientes.</li>
+<li><code>matplotlib</code>: criação de gráficos e visualizações.</li>
+<li><code>requests</code>: envio de requisições HTTP de forma simples.</li>
+</ul>
+<p><strong>Exemplo</strong>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeiro instalar a biblioteca (executar no terminal)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>pip install pandas </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pip install  numpy</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Importações com aliases (apelidos) convencionais</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd       <span class="co"># pd é o alias padrão para pandas</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np        <span class="co"># np é o alias padrão para numpy</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 </section>
 <section id="referências" class="level2 unnumbered">
 
