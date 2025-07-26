@@ -3,7 +3,7 @@
 Fluxo de Trabalho: Integrando Git, GitHub e Quarto com Introdução à Programação em Python.
 
 ## Descrição do Projeto
-Trabalho desenvolvido para a disciplina **INTRODUÇÃO AOS SOFTWARES ESTATÍSTICOS**.
+Trabalho desenvolvido para a disciplina: INTRODUÇÃO AOS SOFTWARES ESTATÍSTICOS
 
 ## Arquivos
 
@@ -13,4 +13,5 @@ Trabalho desenvolvido para a disciplina **INTRODUÇÃO AOS SOFTWARES ESTATÍSTIC
 ## Autor
 
 Aila Ferreira
+
 Discente de Estatística - UFPB
